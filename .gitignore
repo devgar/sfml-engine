@@ -1,5 +1,7 @@
 
 
 **/*.o
+*.out
+*.exe
 sfml-app
 test

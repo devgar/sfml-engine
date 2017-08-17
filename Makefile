@@ -18,4 +18,4 @@ clean:
 	rm -rf *.o **/*.o
 
 clean-all: clean
-	rm -rf sfml-app
+	rm -rf sfml-app *.out *.exe
