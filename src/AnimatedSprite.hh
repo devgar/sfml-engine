@@ -12,7 +12,8 @@
 class AnimatedSprite : public sf::Drawable, public sf::Transformable
 {
 public:
-    explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);
+    explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f),
+                            bool paused = false, bool looped = true);
 
     void update(sf::Time deltaTime);
     void setAnimation(const SpriteAnimation&);
@@ -42,7 +43,6 @@ private:
     sf::Vertex m_vertices[4];
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
 };
 
 #endif // ANIMATEDSPRITE_INCLUDE

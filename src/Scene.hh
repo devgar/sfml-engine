@@ -1,13 +1,12 @@
 #ifndef SCENE_HH
 #define SCENE_HH
 
-#include <string>
 #include <map>
 #include <list>
+#include <string>
 
-#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-
+#include <SFML/Graphics.hpp>
 #include "AnimatedSprite.hh"
 
 using namespace std;
@@ -20,22 +19,25 @@ class Scene {
   map<string, sf::Music> musicMap;
 
   list<sf::Drawable *> drawables;
+  list<sf::Drawable *> updatables;
 public:
 
   void setWindow(sf::RenderWindow &);
 
   void addDrawable(sf::Drawable *);
 
-  void insertTexture(const string &, sf::Texture);
-  void insertSound(string, sf::Texture);
-  void insertMusic(string, sf::Music);
-
-  void loadTexture(string);
-  void loadSound(string);
-  void loadMusic(string);
+  // void loadTexture(string);
+  // void loadSound(string);
+  // void loadMusic(string);
 
   sf::Texture* createTexture(const string &);
   sf::Texture* getTexture(const string &);
+
+  sf::Sound* createSound(const string &);
+  sf::Sound* getSound(const string &);
+
+  sf::Music* createMusic(const string &);
+  sf::Music* getMusic(const string &);
 
   void draw();
   void update(sf::Time);

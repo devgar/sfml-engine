@@ -104,13 +104,13 @@ int main()
       noKeyWasPressed = true;
 
       // update AnimatedSprite
-      animatedSprite.update(frameTime);
-
+      //animatedSprite.update(frameTime);
+      scene.update(frameTime);
       // draw
-      // window.clear();
+      window.clear();
       // //window.draw(animatedSprite);
-      // window.display();
       scene.draw();
+      window.display();
   }
 
   return 0;
