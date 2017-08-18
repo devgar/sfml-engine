@@ -47,7 +47,7 @@ int main()
   AnimatedSprite animatedSprite(sf::seconds(0.2), true, false);
   animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
 
-  scene.addDrawable(&animatedSprite);
+  scene.addDrawable(animatedSprite);
 
   sf::Clock frameClock;
 

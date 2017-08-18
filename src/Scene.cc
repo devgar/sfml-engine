@@ -1,37 +1,47 @@
 #include "Scene.hh"
 
-void Scene::setWindow(sf::RenderWindow & win)
+void Scene::setWindow(RenderWindow & win)
 {
-  m_window = &win;
+  setWindow(&win);
 }
 
-sf::Texture* Scene::createTexture(const string & id)
+void Scene::setWindow(RenderWindow * win)
 {
-    textureMap.insert( pair<string,sf::Texture>(id, sf::Texture()));
+  m_window = win;
+}
+
+Texture* Scene::createTexture(const string & id)
+{
+    textureMap.insert( pair<string,Texture>(id, Texture()));
     return getTexture(id);
 }
 
-sf::Texture* Scene::getTexture(const string & id)
+Texture* Scene::getTexture(const string & id)
 {
-  map<string, sf::Texture>::iterator it = textureMap.find(id);
+  map<string, Texture>::iterator it = textureMap.find(id);
   return it == textureMap.end() ? NULL : &(it->second);
 }
 
-sf::Sound* Scene::createSound(const string & id)
+Sound* Scene::createSound(const string & id)
 {
-  soundMap.insert(pair<string, sf::Sound>(id, sf::Sound()));
+  soundMap.insert(pair<string, Sound>(id, Sound()));
   return getSound(id);
 }
 
-sf::Sound* Scene::getSound(const string & id)
+Sound* Scene::getSound(const string & id)
 {
-  map<string, sf::Sound>::iterator it = soundMap.find(id);
+  map<string, Sound>::iterator it = soundMap.find(id);
   return it == soundMap.end() ? NULL : &(it->second);
 }
 
 // TODO: Decide what to do with musicMap because sd::Music is non-copyable
 
-void Scene::addDrawable(sf::Drawable * drawable)
+void Scene::addDrawable(Drawable & drawable)
+{
+  addDrawable(&drawable);
+}
+
+void Scene::addDrawable(Drawable * drawable)
 {
   drawables.push_back(drawable);
   auto * animated = dynamic_cast<AnimatedSprite*>(drawable);
@@ -43,7 +53,7 @@ void Scene::draw()
   for(auto* d : drawables) m_window -> draw ( *d );
 }
 
-void Scene::update(sf::Time dt)
+void Scene::update(Time dt)
 {
   for(auto* s : updatables) s -> update(dt);
 }

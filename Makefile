@@ -10,11 +10,11 @@ defualt: sfml-app clean
 main.o: main.cc
 	$(CC)++ -c main.cc
 
-sfml-app: main.o
-	$(CC) main.o -o sfml-app $(libs)
+sfml-app.out: main.o
+	$(CC) main.o -o sfml-app.out $(libs)
 
-run: sfml-app
-	./sfml-app
+run: sfml-app.out
+	./sfml-app.out
 
 clean:
 	rm -rf *.o **/*.o

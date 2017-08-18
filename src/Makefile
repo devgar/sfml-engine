@@ -5,20 +5,20 @@ CC = g++ -std=c++17
 
 libs = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
-defualt: sceneTest clean
+defualt: sceneTest.out clean
 
 o:
 	$(CC) -c *.cc
 	rm -f animationTest.o
 
-sceneTest: o
-	$(CC) *.o -o sceneTest $(libs)
+sceneTest.out: o
+	$(CC) *.o -o sceneTest.out $(libs)
 
-run: sceneTest
-	./sceneTest
+run: sceneTest.out
+	./sceneTest.out
 
 clean:
 	rm -rf *.o **/*.o
 
 clean-all: clean
-	rm -rf sceneTest *.out *.exe
+	rm -rf *.out *.exe
