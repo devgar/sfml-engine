@@ -4,7 +4,7 @@
 #include <map>
 #include <list>
 #include <string>
-
+#include <iostream>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "AnimatedSprite.hh"
@@ -19,7 +19,7 @@ class Scene {
   map<string, sf::Music> musicMap;
 
   list<sf::Drawable *> drawables;
-  list<sf::Drawable *> updatables;
+  list<AnimatedSprite *> updatables;
 public:
 
   void setWindow(sf::RenderWindow &);

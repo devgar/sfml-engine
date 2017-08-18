@@ -1,15 +1,17 @@
 
 # Simple makefile
 
+CC = g++ -std=c++17
+
 libs = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 defualt: sfml-app clean
 
 main.o: main.cc
-	g++ -c main.cc
+	$(CC)++ -c main.cc
 
 sfml-app: main.o
-	g++ main.o -o sfml-app $(libs)
+	$(CC) main.o -o sfml-app $(libs)
 
 run: sfml-app
 	./sfml-app

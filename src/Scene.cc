@@ -34,24 +34,16 @@ sf::Sound* Scene::getSound(const string & id)
 void Scene::addDrawable(sf::Drawable * drawable)
 {
   drawables.push_back(drawable);
-  if(dynamic_cast<AnimatedSprite*>(drawable))
-    updatables.push_back(drawable);
+  auto * animated = dynamic_cast<AnimatedSprite*>(drawable);
+  if(animated) updatables.push_back(animated);
 }
 
 void Scene::draw()
 {
-  for(list<sf::Drawable*>::iterator it = drawables.begin();
-      it != drawables.end(); it++)
-  {
-    this -> m_window -> draw ( **it );
-  }
+  for(auto* d : drawables) m_window -> draw ( *d );
 }
 
 void Scene::update(sf::Time dt)
 {
-  for(list<sf::Drawable*>::iterator it = updatables.begin();
-      it != updatables.end(); it++)
-  {
-    dynamic_cast<AnimatedSprite*>(*it) -> update(dt);
-  }
+  for(auto* s : updatables) s -> update(dt);
 }
