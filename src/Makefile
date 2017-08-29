@@ -1,7 +1,7 @@
 
 # Simple makefile
 
-CC = g++ -std=c++17
+CC = g++ -std=c++11
 
 libs = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 

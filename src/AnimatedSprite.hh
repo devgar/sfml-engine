@@ -1,6 +1,8 @@
 #ifndef ANIMATEDSPRITE_INCLUDE
 #define ANIMATEDSPRITE_INCLUDE
 
+#include <cstdlib> //Included for Mac g++ compiler compatibility 
+
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Drawable.hpp>
