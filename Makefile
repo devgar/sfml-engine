@@ -1,4 +1,3 @@
-
 # Simple makefile
 
 CC = g++ -std=c++11
